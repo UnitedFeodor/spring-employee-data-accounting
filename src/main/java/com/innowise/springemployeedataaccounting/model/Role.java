@@ -1,5 +1,6 @@
 package com.innowise.springemployeedataaccounting.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,8 @@ public class Role {
     @Column(name = "r_name")
     String name;
 
+    // TODO instead use dtos
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+    @JsonManagedReference
     List<Employee> employeeList;
 }

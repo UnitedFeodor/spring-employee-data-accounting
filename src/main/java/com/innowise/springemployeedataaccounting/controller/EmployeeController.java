@@ -1,38 +1,48 @@
 package com.innowise.springemployeedataaccounting.controller;
 
 import com.innowise.springemployeedataaccounting.model.Employee;
-import org.springframework.stereotype.Controller;
+import com.innowise.springemployeedataaccounting.service.EmployeeService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
+@AllArgsConstructor
 public class EmployeeController {
 
+    EmployeeService employeeService;
+
     @GetMapping("")
+    @ResponseStatus(HttpStatus.OK)
     public List<Employee> getAllEmployees() {
-        return new ArrayList<>();
+        return employeeService.getAllEmployees();
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployeeWithId() {
-        return new Employee();
+    @ResponseStatus(HttpStatus.OK)
+    public Employee getEmployeeWithId(@PathVariable int id) {
+        return employeeService.getEmployeeWithId(id);
     }
 
     @PostMapping("")
-    public Employee addEmployee() {
-        return new Employee();
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployeeWithId() {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployeeWithId(@PathVariable int id) {
+        employeeService.deleteEmployeeWithId(id);
     }
 
     @PutMapping("/{id}")
-    public Employee replaceEmployerr() {
-        return new Employee();
+    @ResponseStatus(HttpStatus.OK)
+    public Employee replaceEmployee(@PathVariable int id,
+                                    @RequestBody Employee employee) {
+        return employeeService.replaceEmployee(id, employee);
     }
 
 

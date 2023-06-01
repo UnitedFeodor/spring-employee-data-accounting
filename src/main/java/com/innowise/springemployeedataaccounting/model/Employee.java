@@ -1,5 +1,7 @@
 package com.innowise.springemployeedataaccounting.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,10 +30,14 @@ public class Employee {
     @Column(name = "e_password")
     String password;
 
+    // TODO instead use dtos
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "e_company_id")
+    @JsonBackReference
     Company company;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "e_role_id")
+    @JsonBackReference
     Role role;
+
 }
