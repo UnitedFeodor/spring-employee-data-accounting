@@ -4,9 +4,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
-public class EditEmployeeDTO {
+public class EmployeeDto {
 
     Integer id;
     String name;
@@ -14,7 +15,6 @@ public class EditEmployeeDTO {
     String position;
     LocalDate birthDate;
     String email;
-    String password;
-    CompanyDTO company;
-    RoleDTO role;
+    CompanyDto company;
+    RoleDto role;
 }

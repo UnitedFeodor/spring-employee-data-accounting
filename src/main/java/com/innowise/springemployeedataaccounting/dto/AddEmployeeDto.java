@@ -7,14 +7,14 @@ import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
-public class EmployeeDTO {
-
-    Integer id;
+public class AddEmployeeDto {
     String name;
     String surname;
     String position;
     LocalDate birthDate;
     String email;
-    CompanyDTO company;
-    RoleDTO role;
+    String password;
+    CompanyDto company;
+    RoleDto role;
+
 }

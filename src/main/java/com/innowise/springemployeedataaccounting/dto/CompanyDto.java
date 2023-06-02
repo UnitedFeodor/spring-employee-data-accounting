@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class CompanyDTO {
+public class CompanyDto {
 
     String name;
 }
