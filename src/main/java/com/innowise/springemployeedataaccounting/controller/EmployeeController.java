@@ -1,5 +1,9 @@
 package com.innowise.springemployeedataaccounting.controller;
 
+import com.innowise.springemployeedataaccounting.dto.AddEmployeeDto;
+import com.innowise.springemployeedataaccounting.dto.EditEmployeeDto;
+import com.innowise.springemployeedataaccounting.dto.EmployeeDto;
+import com.innowise.springemployeedataaccounting.dto.MapStructMapper;
 import com.innowise.springemployeedataaccounting.model.Employee;
 import com.innowise.springemployeedataaccounting.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -13,23 +17,26 @@ import java.util.List;
 public class EmployeeController {
 
     EmployeeService employeeService;
+    MapStructMapper mapper;
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
-    public List<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
+    public List<EmployeeDto> getAllEmployees() {
+        return mapper.employeeListToEmployeeDtoList(employeeService.getAllEmployees());
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Employee getEmployeeWithId(@PathVariable int id) {
-        return employeeService.getEmployeeWithId(id);
+    public EmployeeDto getEmployeeWithId(@PathVariable int id) {
+        return mapper.employeeToEmployeeDto(employeeService.getEmployeeWithId(id));
     }
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee addEmployee(@RequestBody Employee employee) {
-        return employeeService.addEmployee(employee);
+    public EmployeeDto addEmployee(@RequestBody AddEmployeeDto addEmployeeDto) {
+        Employee employee = mapper.addEmployeeDtoToEmployee(addEmployeeDto);
+
+        return mapper.employeeToEmployeeDto(employeeService.addEmployee(employee));
     }
 
     @DeleteMapping("/{id}")
@@ -40,9 +47,11 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Employee replaceEmployee(@PathVariable int id,
-                                    @RequestBody Employee employee) {
-        return employeeService.replaceEmployee(id, employee);
+    public EmployeeDto editEmployee(@PathVariable int id,
+                                    @RequestBody EditEmployeeDto editEmployeeDto) {
+        Employee employee = mapper.editEmployeeDtoToEmployee(editEmployeeDto);
+
+        return mapper.employeeToEmployeeDto(employeeService.editEmployee(id, employee));
     }
 
 
