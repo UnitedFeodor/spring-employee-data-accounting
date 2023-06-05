@@ -6,6 +6,7 @@ import com.innowise.springemployeedataaccounting.dao.RoleRepository;
 import com.innowise.springemployeedataaccounting.model.Company;
 import com.innowise.springemployeedataaccounting.model.Employee;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,9 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 public class EmployeeService {
     // TODO add validation
+    // TODO add security
     EmployeeRepository employeeRepo;
-    CompanyRepository companyRepo;
-    RoleRepository roleRepo;
+    PasswordEncoder passwordEncoder;
 
     @Transactional
     public List<Employee> getAllEmployees() {
@@ -29,6 +30,8 @@ public class EmployeeService {
     }
     @Transactional
     public Employee addEmployee(Employee employee) {
+        String encodedPassword = passwordEncoder.encode(employee.getPassword());
+        employee.setPassword(encodedPassword);
         return employeeRepo.save(employee);
     }
     @Transactional
