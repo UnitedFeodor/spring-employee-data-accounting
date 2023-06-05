@@ -30,7 +30,7 @@ public interface MapStructMapper {
 
     @Mapping(source = "employee.company", target = "company",qualifiedByName = COMPANY_TO_ID)
     @Mapping(source = "employee.role", target = "role",qualifiedByName = ROLE_TO_ID)
-    List<EmployeeDto> employeeListToEmployeeDtoList(List<Employee> employee);
+    List<EmployeeDto> employeeListToEmployeeDtoList(List<Employee> employeeList);
 
     @Mapping(source = "addEmployeeDto.company", target = "company",qualifiedByName = ID_TO_COMPANY)
     @Mapping(source = "addEmployeeDto.role", target = "role",qualifiedByName = ID_TO_ROLE)
@@ -73,6 +73,7 @@ public interface MapStructMapper {
         return role;
     }
 
-
+    List<CompanyDto> companyListToCompanyDtoList(List<Company> companyList);
+    List<RoleDto> roleListToRoleDtoList(List<Role> roleList);
 
 }

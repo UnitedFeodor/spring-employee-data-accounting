@@ -7,5 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CompanyDto {
 
+    Integer id;
     String name;
 }
