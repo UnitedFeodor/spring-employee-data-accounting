@@ -21,9 +21,6 @@ public class Company {
     @Column(name = "c_name")
     String name;
 
-
-    // TODO instead use dtos
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
-    @JsonManagedReference
     List<Employee> employeeList;
 }

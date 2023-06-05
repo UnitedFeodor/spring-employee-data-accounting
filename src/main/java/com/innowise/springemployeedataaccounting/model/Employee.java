@@ -30,14 +30,11 @@ public class Employee {
     @Column(name = "e_password")
     String password;
 
-    // TODO instead use dtos
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "e_company_id")
-    @JsonBackReference
     Company company;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "e_role_id")
-    @JsonBackReference
     Role role;
 
 }

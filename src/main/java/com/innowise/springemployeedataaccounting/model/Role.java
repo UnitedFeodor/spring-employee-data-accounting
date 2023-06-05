@@ -19,8 +19,6 @@ public class Role {
     @Column(name = "r_name")
     String name;
 
-    // TODO instead use dtos
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-    @JsonManagedReference
     List<Employee> employeeList;
 }

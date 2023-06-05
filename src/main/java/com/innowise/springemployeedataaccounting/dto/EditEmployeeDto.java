@@ -15,6 +15,6 @@ public class EditEmployeeDto {
     LocalDate birthDate;
     String email;
     String password;
-    CompanyDto company;
-    RoleDto role;
+    Integer company;
+    Integer role;
 }

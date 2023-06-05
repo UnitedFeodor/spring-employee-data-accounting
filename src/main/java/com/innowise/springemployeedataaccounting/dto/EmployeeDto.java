@@ -15,6 +15,6 @@ public class EmployeeDto {
     String position;
     LocalDate birthDate;
     String email;
-    CompanyDto company;
-    RoleDto role;
+    Integer company;
+    Integer role;
 }
