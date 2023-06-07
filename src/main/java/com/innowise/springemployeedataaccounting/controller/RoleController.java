@@ -14,8 +14,8 @@ import java.util.List;
 @RequestMapping("/api/roles")
 @AllArgsConstructor
 public class RoleController {
-    RoleService roleService;
-    MapStructMapper mapper;
+    private RoleService roleService;
+    private MapStructMapper mapper;
 
     @GetMapping("")
     public List<RoleDto> getAllRoles() {

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class RoleService {
-    RoleRepository roleRepo;
+    private RoleRepository roleRepo;
 
     @Transactional
     public List<Role> getAllRoles() {

@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CompanyService {
-    CompanyRepository companyRepo;
+    private CompanyRepository companyRepo;
 
     @Transactional
     public List<Company> getAllCompanies() {

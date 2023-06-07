@@ -17,8 +17,9 @@ import java.util.List;
 public class EmployeeService {
     // TODO add validation
     // TODO add security
-    EmployeeRepository employeeRepo;
-    PasswordEncoder passwordEncoder;
+    // TODO add logging
+    private EmployeeRepository employeeRepo;
+    private PasswordEncoder passwordEncoder;
 
     @Transactional
     public List<Employee> getAllEmployees() {

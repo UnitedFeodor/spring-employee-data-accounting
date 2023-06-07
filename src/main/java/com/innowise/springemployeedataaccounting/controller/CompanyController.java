@@ -16,8 +16,8 @@ import java.util.List;
 @RequestMapping("/api/companies")
 @AllArgsConstructor
 public class CompanyController {
-    CompanyService companyService;
-    MapStructMapper mapper;
+    private CompanyService companyService;
+    private MapStructMapper mapper;
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)

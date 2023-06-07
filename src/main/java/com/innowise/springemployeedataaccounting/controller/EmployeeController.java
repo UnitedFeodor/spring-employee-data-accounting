@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class EmployeeController {
 
-    EmployeeService employeeService;
-    MapStructMapper mapper;
+    private EmployeeService employeeService;
+    private MapStructMapper mapper;
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
