@@ -6,5 +6,5 @@ import org.springframework.data.repository.ListCrudRepository;
 
 public interface EmployeeRepository extends ListCrudRepository<Employee, Integer> {
 
-
+    Employee findByEmail(String email);
 }

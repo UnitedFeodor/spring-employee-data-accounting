@@ -3,3 +3,13 @@ spring:
     url: jdbc:mysql://localhost:3306/employee-data-accounting
     password: BebraBebra
     username: root
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+    hibernate:
+      ddl-auto: update
+jwt:
+  secret: boris
+  issuer: server
+  expiration: 120
